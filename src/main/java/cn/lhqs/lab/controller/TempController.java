@@ -44,7 +44,7 @@ public class TempController {
         return ip;
     }
 
-    @GetMapping(value = "/getParamsTest1")
+    @GetMapping(value = "/getParamsTest")
     public String getParamTest(@RequestParam(value = "id", required = false, defaultValue = "0") Integer id) {
         // JsonInclude
         // JsonParser

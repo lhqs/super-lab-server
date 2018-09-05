@@ -10,10 +10,10 @@ import java.io.Serializable;
  */
 public class ReturnResult implements Serializable{
     private static final long serialVersionUID = -3100630958373978641L;
-    private int code = 20000;
+    private int code = 200;
     private String message;
     private Object data;
-    public static final ReturnResult ok = new ReturnResult(20000,"success");
+    public static final ReturnResult ok = new ReturnResult(200,"success");
     public static final ReturnResult fail = new ReturnResult(-1,"failure");
 
     public ReturnResult() {

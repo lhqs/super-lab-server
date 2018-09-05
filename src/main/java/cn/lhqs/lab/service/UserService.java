@@ -1,6 +1,9 @@
 package cn.lhqs.lab.service;
 
+import cn.lhqs.lab.entity.MemberVO;
 import cn.lhqs.lab.entity.UserInfo;
+
+import java.util.List;
 
 /**
  * author : lhqs
@@ -11,19 +14,17 @@ import cn.lhqs.lab.entity.UserInfo;
  */
 public interface UserService {
 
-    // List<UserInfo> list();
-    //
-    // List<UserInfo> findByUsername(String username);
-    //
-    // UserInfo get(String userId);
-    //
-    // int delete(String userId);
-
     int loginTest(String username, String password);
 
     UserInfo getUserInfo(String token);
 
     int updateRequestNums(String token);
+
+    int updateToken(String username, String password);
+
+    List<UserInfo> getGroupMember();
+
+    List<MemberVO> getFullMember();
 
 
 }
