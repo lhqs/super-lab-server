@@ -16,8 +16,8 @@
 *.iml
 *.ipr
 
-src/main/resources/application.yml
-src/main/resources/config.properties
+application.yml
+config.properties
 
 ### NetBeans ###
 /nbproject/private/
