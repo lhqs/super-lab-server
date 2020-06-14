@@ -2,7 +2,6 @@ package cn.lhqs.lab.controller;
 
 import cn.lhqs.lab.entity.*;
 import cn.lhqs.lab.service.TaskService;
-import org.apache.ibatis.annotations.Delete;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -41,9 +40,18 @@ public class TaskController {
     }
 
     @GetMapping("/task/getTaskList")
-    public ReturnResult getTaskList(@RequestParam(value = "pageNum",  defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
-        logger.info("pageNum -->"+pageNum + ", pageSize -->" + pageSize);
-        PageInfo<TaskList> taskList = taskServiceImpl.getTaskList(pageNum, pageSize);
+    public ReturnResult getTaskList(@RequestParam(value = "pageNum",  defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize,
+                                    @RequestParam(value = "taskConsumer",  defaultValue = "") String taskConsumer,
+                                    @RequestParam(value = "taskProducer", defaultValue = "") String taskProducer,
+                                    @RequestParam("isComplete") int isComplete, @RequestParam("tags")String tags,
+                                    @RequestParam("userId")String userId) {
+        logger.info("pageNum -->"+pageNum + ", pageSize -->" + pageSize + ", taskConsumer --> " + taskConsumer + ", taskProducer --> " + taskProducer + ", isComplete--> " + isComplete);
+        PageInfo<TaskList> taskList = null;
+        if (isComplete == 0) {
+            taskList = taskServiceImpl.getTaskList(pageNum, pageSize, taskConsumer, taskProducer, tags, userId);
+        } else {
+            taskList = taskServiceImpl.getTaskCompleteList(pageNum, pageSize, taskConsumer, taskProducer, tags, userId);
+        }
         return new ReturnResult(200, "success", taskList);
     }
 
@@ -83,4 +91,30 @@ public class TaskController {
         }
         return ReturnResult.fail;
     }
+
+    @GetMapping("/task/getUnreadMsg")
+    public ReturnResult getUnreadMsg(@RequestParam("userId")String userId) {
+        logger.info("userId ---> " + userId );
+        int count = taskServiceImpl.getUnreadMessage(userId);
+        return new ReturnResult(200, "success", count);
+    }
+
+    @GetMapping("/task/getUnreadMsgList")
+    public ReturnResult getUnreadMsgList(@RequestParam("userId")String userId) {
+        logger.info("userId ---> " + userId );
+        List<TaskList> taskList = taskServiceImpl.getTaskListByUserId(userId);
+        return new ReturnResult(200, "success", taskList);
+    }
+
+    @GetMapping("/task/updateReadState")
+    public ReturnResult updateReadState(@RequestParam("taskId")String taskId) {
+        logger.info("taskId ---> " + taskId );
+        int respCode = taskServiceImpl.updateReadState(taskId);
+        if(respCode == 1) {
+            return ReturnResult.ok;
+        }
+        return ReturnResult.fail;
+    }
+
+
 }

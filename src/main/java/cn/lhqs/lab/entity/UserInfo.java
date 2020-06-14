@@ -24,6 +24,44 @@ public class UserInfo {
     private Date createTime;
     private Date updateTime;
 
+    private int isAdmin;
+    private String characterDesc;
+
+    private int userType;
+    private int userGroup;
+
+    public int getUserType() {
+        return userType;
+    }
+
+    public void setUserType(int userType) {
+        this.userType = userType;
+    }
+
+    public int getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(int userGroup) {
+        this.userGroup = userGroup;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public String getCharacterDesc() {
+        return characterDesc;
+    }
+
+    public void setCharacterDesc(String characterDesc) {
+        this.characterDesc = characterDesc;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -126,5 +164,24 @@ public class UserInfo {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "userId='" + userId + '\'' +
+                ", token='" + token + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", loginNum=" + loginNum +
+                ", status=" + status +
+                ", sex=" + sex +
+                ", avatar='" + avatar + '\'' +
+                ", address='" + address + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

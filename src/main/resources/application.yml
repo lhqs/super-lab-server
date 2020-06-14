@@ -18,8 +18,8 @@ server:
 spring:
   datasource:
     username: root
-    password: gPRLUe30AMJI5MEVkZFB3
-    url: jdbc:mysql://47.98.125.48:3306/super_lab?useUnicode=true&characterEncoding=UTF-8
+    password: lhqs
+    url: jdbc:mysql://47.98.185.45:3306/super_lab?useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 

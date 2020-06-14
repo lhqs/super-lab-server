@@ -19,6 +19,34 @@ public class TaskListVO {
     private String describe;
 
     private String producer;
+    private String address;
+    private double budget;
+
+    private int isEmergency;
+
+    public int getIsEmergency() {
+        return isEmergency;
+    }
+
+    public void setIsEmergency(int isEmergency) {
+        this.isEmergency = isEmergency;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
 
     public String getProducer() {
         return producer;
@@ -86,6 +114,8 @@ public class TaskListVO {
                 ", endDate=" + endDate +
                 ", describe='" + describe + '\'' +
                 ", producer='" + producer + '\'' +
+                ", address='" + address + '\'' +
+                ", budget=" + budget +
                 '}';
     }
 }

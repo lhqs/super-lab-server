@@ -22,6 +22,20 @@ public class TaskList {
     private String producer;
     private Date createTime;
 
+    private String address;
+    private double budget;
+    private String feedbackMessage;
+
+    private int isEmergency;
+
+    public int getIsEmergency() {
+        return isEmergency;
+    }
+
+    public void setIsEmergency(int isEmergency) {
+        this.isEmergency = isEmergency;
+    }
+
     public String getTaskId() {
         return taskId;
     }
@@ -108,5 +122,29 @@ public class TaskList {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
+
+    public String getFeedbackMessage() {
+        return feedbackMessage;
+    }
+
+    public void setFeedbackMessage(String feedbackMessage) {
+        this.feedbackMessage = feedbackMessage;
     }
 }

@@ -21,7 +21,7 @@ import java.util.List;
  * version : 1.0
  */
 @Service
-public class PublishServiceImp implements PublishService {
+public class PublishServiceImpl implements PublishService {
     @SuppressWarnings("all")
     @Resource
     PublishMapper publishMapper;

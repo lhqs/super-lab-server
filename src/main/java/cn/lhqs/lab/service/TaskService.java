@@ -15,7 +15,9 @@ import java.util.List;
  */
 public interface TaskService {
 
-    PageInfo<TaskList> getTaskList(int pageNum, int pageSize);
+    PageInfo<TaskList> getTaskList(int pageNum, int pageSize, String taskConsumer, String taskProducer, String tags,String userId);
+
+    PageInfo<TaskList> getTaskCompleteList(int pageNum, int pageSize, String taskConsumer, String taskProducer, String tags, String userId);
 
     List<TaskList> getTaskRecordByUserId(String userId);
 
@@ -26,4 +28,10 @@ public interface TaskService {
     int updateVerifyStatus(String taskId);
 
     int renewProgressById(String taskId, int progress);
+
+    int getUnreadMessage(String userId);
+
+    List<TaskList> getTaskListByUserId(String userId);
+
+    int updateReadState(String taskId);
 }

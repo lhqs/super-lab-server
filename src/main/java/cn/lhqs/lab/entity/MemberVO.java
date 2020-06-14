@@ -10,6 +10,7 @@ package cn.lhqs.lab.entity;
 public class MemberVO {
     private String label;
     private String value;
+    private String avatar;
 
     public String getLabel() {
         return label;
@@ -25,5 +26,13 @@ public class MemberVO {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

@@ -1,6 +1,7 @@
 package cn.lhqs.lab.service;
 
 import cn.lhqs.lab.entity.MemberVO;
+import cn.lhqs.lab.entity.RegisterCode;
 import cn.lhqs.lab.entity.UserInfo;
 
 import java.util.List;
@@ -24,7 +25,17 @@ public interface UserService {
 
     List<UserInfo> getGroupMember();
 
-    List<MemberVO> getFullMember();
+    List<List<MemberVO>> getFullMember();
 
+    int addRegisterCode(UserInfo userInfo, String code, String ip);
 
+    String getRegisterCode();
+
+    int updateImageUrl(String token, String imageUrl);
+
+    int updateUserType(String userId, String userType, String userGroup);
+
+    int reNewDesc(String token, String newDesc);
+
+    int getNewCount();
 }
